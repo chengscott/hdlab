@@ -1,5 +1,8 @@
+SN = 104021219
+NAME = 鄭余玄
+
 all:
-	@while [ -z "$$num" ]; do \
-		read -r -p "lab: " num; \
+	@while [ -z "${lab}" ]; do \
+		read -r -p "lab: " lab; \
 	done;\
-	zip -r code/lab$$num\_104021219\_鄭余玄 lab$$num\_*/
+	zip -r code/lab${lab}\_$(SN)\_$(NAME) lab${lab}\_*/
