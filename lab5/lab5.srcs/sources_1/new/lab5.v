@@ -20,11 +20,16 @@ parameter [1:0] SelectTicket = 2'b00,
                 ReturnChange = 2'b11;
 parameter [7:0] BCD_Business = {4'd7, 4'd5},
                 BCD_Gernal = {4'd5, 4'd5};
+parameter [9:0] DROP10 = 10'b11111_11111,
+                DROP5 = 10'b11111_00000;
+wire clk13, clk16, clk25, clk_state;
 reg [1:0] state, state_next;
+reg [9:0] drop_money_next;
 assign drop_business_ticket = state == TcktDropping && {BCD3, BCD2} == BCD_Business;
 assign drop_general_ticket = state == TcktDropping && {BCD3, BCD2} == BCD_Gernal;
 reg [3:0] BCD0, BCD1, BCD2, BCD3;
 reg [3:0] BCD0_next, BCD1_next, BCD2_next, BCD3_next;
+assign clk_state = state == SelectTicket || state == DepositMoney ? clk16 : clk25;
 
 clock_divider #(13) cd13(.clk(clk), .clk_div(clk13));
 clock_divider #(16) cd16(.clk(clk), .clk_div(clk16));
@@ -49,22 +54,17 @@ Seven_SEG seg(
     .DIGIT(DIGIT)
 );
 
-always @(posedge clk25 or posedge reset) begin
+always @(posedge clk_state or posedge reset) begin
     if (reset) begin
         state <= SelectTicket;
         {BCD1, BCD0} <= 0;
         {BCD3, BCD2} <= 0;
+        drop_money <= 0;
     end else begin
         state <= state_next;
         {BCD1, BCD0} <= {BCD1_next, BCD0_next};
         {BCD3, BCD2} <= {BCD3_next, BCD2_next};
-    end
-end
-
-always @(posedge ocancel) begin
-    if (state == DepositMoney) begin
-        {BCD3_next, BCD2_next} = 0;
-        state_next = ReturnChange;
+        drop_money <= drop_money_next;
     end
 end
 
@@ -72,9 +72,13 @@ always @* begin
     state_next = state;
     {BCD1_next, BCD0_next} = {BCD1, BCD0};
     {BCD3_next, BCD2_next} = {BCD3, BCD2};
+    drop_money_next = drop_money;
     case (state)
         SelectTicket: begin
-            if (obusiness_ticket) begin
+            if (ocancel) begin
+                {BCD3_next, BCD2_next} = 0;
+                state_next = ReturnChange;
+            end else if (obusiness_ticket) begin
                 {BCD3_next, BCD2_next} = BCD_Business;
                 state_next = DepositMoney;
             end else if (ogeneral_ticket) begin
@@ -83,14 +87,19 @@ always @* begin
             end
         end
         DepositMoney: begin
-            if (omoney_5) begin
-                if (BCD0 == 0) BCD0_next = 5;
-                else {BCD1_next, BCD0_next} = {BCD1 + 1, 4'd0};
-            end else if (omoney_10) begin
-                BCD1_next = BCD1 + 1;
+            if (ocancel) begin
+                {BCD3_next, BCD2_next} = 0;
+                state_next = ReturnChange;
+            end else begin
+               if (omoney_5) begin
+                    if (BCD0 == 0) BCD0_next = 4'd5;
+                    else {BCD1_next, BCD0_next} = {BCD1 + 1, 4'd0};
+                end else if (omoney_10) begin
+                   BCD1_next = BCD1 + 1;
+               end
+               if (BCD1 > BCD3 || (BCD1 == BCD3 && BCD0 >= BCD2))
+                   state_next = TcktDropping;
             end
-            if (BCD3 > BCD1 || (BCD3 == BCD1 && BCD2 >= BCD0))
-                state_next = TcktDropping;
         end
         TcktDropping: begin
             {BCD3_next, BCD2_next} = 0;
@@ -99,11 +108,14 @@ always @* begin
         ReturnChange: begin
             if (BCD1 > 0) begin
                 BCD1_next = BCD1 - 1;
-                drop_money = (1 << 11 - 1);
+                drop_money_next = DROP10;
             end else if (BCD0 > 0) begin
                 BCD0_next = 0;
-                drop_money = (1 << 11 - 1 << 6);
-            end else state_next = SelectTicket;
+                drop_money_next = DROP5;
+            end else begin
+                state_next = SelectTicket;
+                drop_money_next = 0;
+            end
         end
     endcase
 end
