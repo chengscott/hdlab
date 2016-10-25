@@ -97,8 +97,11 @@ always @* begin
                 end else if (omoney_10) begin
                    BCD1_next = BCD1 + 1;
                end
-               if (BCD1 > BCD3 || (BCD1 == BCD3 && BCD0 >= BCD2))
+               if (BCD1 > BCD3 || (BCD1 == BCD3 && BCD0 >= BCD2)) begin
+                   BCD0_next = BCD0 < BCD2 ? BCD2 - BCD0 : BCD0 - BCD2;
+                   BCD1_next = BCD1 - BCD3 - (BCD0 < BCD2);
                    state_next = TcktDropping;
+               end
             end
         end
         TcktDropping: begin
