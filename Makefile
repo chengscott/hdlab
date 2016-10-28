@@ -5,4 +5,4 @@ all:
 	@while [ -z "${lab}" ]; do \
 		read -r -p "lab: " lab; \
 	done;\
-	zip -r code/lab${lab}\_$(SN)\_$(NAME) lab${lab}\_*/
+	zip -r code/lab${lab}\_$(SN)\_$(NAME) lab${lab}*
