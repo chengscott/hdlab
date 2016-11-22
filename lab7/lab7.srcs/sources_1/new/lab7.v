@@ -32,8 +32,9 @@ assign pmod_2 = 1'd1;	//no gain(6dB)
 assign pmod_4 = 1'd1;	//turn-on
 
 reg enable = 0;
-always @(posedge dPlay) begin
-    enable <= ~enable;
+always @(posedge dPlay, posedge dStop) begin
+    if (dStop) enable <= 1;
+    else enable <= ~enable;
 end
 
 //Generate beat speed
