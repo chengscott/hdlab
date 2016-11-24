@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{CJKutf8, indentfirst, graphicx, subfigure}
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\title{硬體設計與實驗 Lab7 Report}
+\author{104021219 鄭余玄}
+\date{}
+\maketitle
+\section{實做過程}
+這次 lab7 主要是參考助教 musicbox 的範例程式碼去略做修改，再加上助教已經提供了哆拉A夢和櫻桃小丸子的 Music.v，所以就可以很迅速的完成。BEAT\_FREQ 我是依照 Speed 訊號去選擇需要的速度，而 duty 則是按照 Quality 訊號去選擇不同的佔空比。 Repeat 訊號則是在 PlayerCtrl 這個 module 中處理，當音樂跑到最後時，如果有 Repeat 訊號則從頭播放，若沒有則設 ibeat 為 511（超過兩首音樂的 BEATLEAGTH 即可）。 此外，靜音我是利用 Mute 訊號用 mux 選擇，如果有靜音，pmod\_1就輸出兩萬赫茲，因此 pmod\_4 一直都是輸出 1。
+
+Play、Stop、Music 訊號，我的用法比較特別，沒有使用助教建議的 FSM 寫法，而是把這幾種訊號當作 reset 訊號。 像是 Stop 訊號 or 上 Music 訊號就是第一個 PlayerCtrl 的 reset；而 Stop 訊號 or 上 ~Music 訊號就是第二個的 reset。因為 Stop 訊號其實等效讓音樂從頭開始播放，而 Music 也是會讓切換到的音樂從開始。 Music 訊號同時是用來選擇輸出的 freq。Start 和 Stop 訊號也類似以往的處理方式，每當訊號有改變時， enable 訊號就會改變，而這個訊號則是接到兩個 PWM\_gen 的 reset，讓音樂可以達到播不播放的效果。
+
+\section{學到的東西及遇到的困難}
+這次學到的就是 pmod 的使用，以及如何控制音樂的輸出。像是樂譜轉成一個個音符的頻率，助教就有提供一些小撇步，還有學到佔空比等概念。這次 lab 基本上沒有遇到特別的困難，主要只是害怕耳機燒掉而已。
+
+\section{想對老師或助教說的話}
+覺得這個 lab 很有趣！也很感謝助教幫我們打好音樂的 module了！
+
+\end{CJK}
+\end{document}
