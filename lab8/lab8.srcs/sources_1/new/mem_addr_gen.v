@@ -9,7 +9,7 @@ module mem_addr_gen(
    input [9:0] v_cnt,
    output [16:0] pixel_addr
 );
-reg [7:0] position;
+reg [8:0] position;
 reg enable = 1;
 
 assign pixel_addr = ((h_cnt >> 1) + 320*(v_cnt >> 1) + position)%76800;  //640*480 --> 320*240 
@@ -21,10 +21,10 @@ always @(posedge clk, posedge rst) begin
         position <= position;
     else if (dir && position > 0)
         position <= position - 1;
-    else if (~dir && position < 239)
+    else if (~dir && position < 319)
         position <= position + 1;
     else if (dir)
-        position <= 239;
+        position <= 319;
     else
         position <= 0;
 end
