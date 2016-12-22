@@ -1,0 +1,85 @@
+`timescale 1ns / 1ps
+
+module KeyboardSignal(
+    input clk,
+    input rst,
+    inout PS2_DATA,
+    inout PS2_CLK,
+    output reg kR,
+    output reg kW,
+    output reg kA,
+    output reg kS,
+    output reg kD,
+    output reg k0,
+    output reg k1,
+    output reg k2,
+    output reg k3,
+    output reg ksp
+);
+// parameter [8:0] LEFT_SHIFT_CODES  = 9'h12;
+// parameter [8:0] RIGHT_SHIFT_CODES = 9'h59;
+parameter [8:0] KEY_CODES [0:9] = {
+    9'h2D, // R
+    9'h1D, // W
+    9'h1C, // A
+    9'h1B, // S
+    9'h23, // D
+    9'h70, // 0
+    9'h69, // 1
+    9'h72, // 2
+    9'h7A, // 3
+    9'h29 // sp
+};
+wire [511:0] key_down;
+// wire shift_down = (key_down[LEFT_SHIFT_CODES] || key_down[RIGHT_SHIFT_CODES]);
+wire [8:0] last_change;
+wire been_ready;
+
+KeyboardDecoder key_de(
+    .key_down(key_down),
+    .last_change(last_change),
+    .key_valid(been_ready),
+    .PS2_DATA(PS2_DATA),
+    .PS2_CLK(PS2_CLK),
+    .rst(rst),
+    .clk(clk)
+);
+
+always @(posedge clk, posedge rst) begin
+    if (rst) begin
+        kR <= 0;
+        kW <= 0;
+        kA <= 0;
+        kS <= 0;
+        kD <= 0;
+        k0 <= 0;
+        k1 <= 0;
+        k2 <= 0;
+        k3 <= 0;
+        ksp <= 0;
+    end else begin
+        kR <= 0;
+        kW <= 0;
+        kA <= 0;
+        kS <= 0;
+        kD <= 0;
+        k0 <= 0;
+        k1 <= 0;
+        k2 <= 0;
+        k3 <= 0;
+        ksp <= 0;
+        if (been_ready && key_down[last_change] == 1'b1) begin
+            if (last_change == KEY_CODES[0]) kR <= 1;
+            if (last_change == KEY_CODES[1]) kW <= 1;
+            if (last_change == KEY_CODES[2]) kA <= 1;
+            if (last_change == KEY_CODES[3]) kS <= 1;
+            if (last_change == KEY_CODES[4]) kD <= 1;
+            if (last_change == KEY_CODES[5]) k0 <= 1;
+            if (last_change == KEY_CODES[6]) k1 <= 1;
+            if (last_change == KEY_CODES[7]) k2 <= 1;
+            if (last_change == KEY_CODES[8]) ksp <= 1;
+        end
+    end
+end
+
+endmodule
