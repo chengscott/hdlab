@@ -3,7 +3,7 @@ module bortingwalk(
     input clk,
     input reset,
     // LED
-    input [15:0] LED,
+    output reg [15:0] LED,
     // 7-SEG
     output [3:0] DIGIT,
     output [6:0] DISPLAY,
@@ -63,15 +63,12 @@ LargePulse lpA (
     .clk(clk)
 );
 
-assign LED[0] = lR;
-assign LED[1] = lW;
-assign LED[2] = lA;
-assign LED[3] = kS;
-assign LED[4] = kD;
-assign LED[5] = k0;
-assign LED[6] = k1;
-assign LED[7] = k2;
-assign LED[8] = k3;
+always @* begin
+    LED = 16'b1;
+    LED[0] = lR;
+    LED[1] = lW;
+    LED[2] = lA;
+end
 
 
 endmodule

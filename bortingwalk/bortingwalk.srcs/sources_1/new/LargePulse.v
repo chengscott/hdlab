@@ -8,11 +8,11 @@ module LargePulse #(
     output reg largepulse
 );
 reg state, state_next;
-reg [28:0] count, count_next;
+reg [27:0] count, count_next;
 reg output_next;
 
 always@(posedge clk, posedge rst)begin
-    if(rst) begin
+    if (rst) begin
         state <= WAIT;
         count <= 0;
         largepulse <= 0;
