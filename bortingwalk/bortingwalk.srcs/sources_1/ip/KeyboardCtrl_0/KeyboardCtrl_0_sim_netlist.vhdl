@@ -1,7 +1,7 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
--- Date        : Thu Dec 22 10:31:03 2016
+-- Date        : Thu Dec 22 19:25:31 2016
 -- Host        : Scott running 64-bit Ubuntu 16.04.1 LTS
 -- Command     : write_vhdl -force -mode funcsim
 --               /media/scott/BC74E09A74E058A2/hdlab/bortingwalk/bortingwalk.srcs/sources_1/ip/KeyboardCtrl_0/KeyboardCtrl_0_sim_netlist.vhdl

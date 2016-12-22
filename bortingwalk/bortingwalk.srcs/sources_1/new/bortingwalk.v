@@ -1,25 +1,19 @@
 `timescale 1ns / 1ps
+
 module bortingwalk(
-    input clk,
-    input reset,
+    input clk, reset,
     // LED
     output reg [15:0] LED,
     // 7-SEG
     output [3:0] DIGIT,
     output [6:0] DISPLAY,
     // Music
-    output pmod_1,
-    output pmod_2,
-    output pmod_4,
+    output pmod_1, pmod_2, pmod_4,
     // VGA
-    output [3:0] vgaRed,
-    output [3:0] vgaGreen,
-    output [3:0] vgaBlue,
-    output hsync,
-    output vsync,
+    output [3:0] vgaRed, vgaGreen, vgaBlue,
+    output hsync, vsync,
     // Keyboard
-    inout PS2_DATA,
-    inout PS2_CLK
+    inout PS2_DATA, PS2_CLK
 );
 
 clock_divider #(27) cdsec(.clk(clk), .clk_div(clksec));
@@ -70,7 +64,7 @@ LargePulse lpS(
     .clk(clk)
 );
 
-show_background sbg(
+render_scene rsc(
     .clk(clk),
     .rst(rst),
     .vgaRed(vgaRed),
