@@ -9,8 +9,7 @@ module pixel_gen #(
    input borting_x, borting_y,
    output reg [3:0] vgaRed, vgaGreen, vgaBlue
 );
-wire [11:0] borting_data;
-wire [14:0] borting_addr = ((h_cnt>>1) + BORTING_LENGTH*(v_cnt>>1))%11280;
+wire [14:0] borting_addr = (((h_cnt - borting_x)>>1) + BORTING_LENGTH*((v_cnt- borting_y)>>1))%11280;
 wire [11:0] borting_px;
 
 always @* begin
@@ -38,9 +37,8 @@ borting_mem borting(
   .clka(clk),
   .wea(0),
   .addra(borting_addr),
-  .dina(borting_data[11:0]),
+  .dina(0),
   .douta(borting_px)
 );
 
 endmodule
-

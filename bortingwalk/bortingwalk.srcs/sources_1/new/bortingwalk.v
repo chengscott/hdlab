@@ -81,5 +81,4 @@ always @* begin
     LED[3] = lS;
 end
 
-
 endmodule

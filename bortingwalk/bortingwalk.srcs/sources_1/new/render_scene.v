@@ -5,11 +5,9 @@ module render_scene(
     output [3:0] vgaRed, vgaGreen, vgaBlue,
     output hsync, vsync
 );
-wire [9:0] h_cnt; // 640
-wire [9:0] v_cnt; // 480
+wire [9:0] h_cnt, v_cnt; // 640, 480
 
 clock_divider #(2) cd25Mz(.clk(clk), .clk_div(clk_25MHz));
-clock_divider #(22) cd22(.clk(clk), .clk_div(clk22));
 
 pixel_gen pixel_ctr(
    .borting_x(0),
