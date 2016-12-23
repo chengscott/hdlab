@@ -1,4 +1,5 @@
 module LargePulse #(
+    parameter PULSE = 16,
     parameter WAIT = 0,
     parameter COUNT = 1
 ) (
@@ -8,7 +9,7 @@ module LargePulse #(
     output reg largepulse
 );
 reg state, state_next;
-reg [27:0] count, count_next;
+reg [PULSE - 1:0] count, count_next;
 reg output_next;
 
 always @(posedge clk, posedge rst) begin

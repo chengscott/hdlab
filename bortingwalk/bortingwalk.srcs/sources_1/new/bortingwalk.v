@@ -39,6 +39,16 @@ KeyboardSignal ks(
 render_scene rsc(
     .clk(clk),
     .rst(rst),
+    .kR(kR),
+    .kW(kW),
+    .kA(kA),
+    .kS(kS),
+    .kD(kD),
+    .k0(k0),
+    .k1(k1),
+    .k2(k2),
+    .k3(k3),
+    .ksp(ksp),
     .vgaRed(vgaRed),
     .vgaGreen(vgaGreen),
     .vgaBlue(vgaBlue),
@@ -47,7 +57,7 @@ render_scene rsc(
 );
 
 always @* begin
-    LED[0] = kR;
+    LED[0] = kD;
     LED[1] = kW;
     LED[2] = kA;
     LED[3] = kS;
