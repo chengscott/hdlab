@@ -19,6 +19,13 @@ module bortingwalk(
 clock_divider #(27) cdsec(.clk(clk), .clk_div(clksec));
 debounce dbrst(.clk(clk), .pb(reset), .pb_debounced(rst));
 
+count_backward cb(.clk(clk),
+                  .rst(rst),
+                  .DIGIT(DIGIT),
+                  .DISPLAY(DISPLAY),
+                  .start(k0),
+                  .win_1p(win_1p));
+
 KeyboardSignal ks(
     .lR(kR),
     .lW(kW),
@@ -51,6 +58,7 @@ always @* begin
     LED[1] = kW;
     LED[2] = kA;
     LED[3] = kS;
+    LED[4] = win_1p;
 end
 
 endmodule
