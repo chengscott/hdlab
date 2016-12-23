@@ -20,47 +20,19 @@ clock_divider #(27) cdsec(.clk(clk), .clk_div(clksec));
 debounce dbrst(.clk(clk), .pb(reset), .pb_debounced(rst));
 
 KeyboardSignal ks(
-    .kR(kR),
-    .kW(kW),
-    .kA(kA),
-    .kS(kS),
-    .kD(kD),
-    .k0(k0),
-    .k1(k1),
-    .k2(k2),
-    .k3(k3),
-    .ksp(ksp),
+    .lR(kR),
+    .lW(kW),
+    .lA(kA),
+    .lS(kS),
+    .lD(kD),
+    .l0(k0),
+    .l1(k1),
+    .l2(k2),
+    .l3(k3),
+    .lsp(ksp),
     .PS2_DATA(PS2_DATA),
     .PS2_CLK(PS2_CLK),
     .rst(reset),
-    .clk(clk)
-);
-
-LargePulse lpR(
-    .largepulse(lR),
-    .origin(kR),
-    .rst(rst),
-    .clk(clk)
-);
-
-LargePulse lpW(
-    .largepulse(lW),
-    .origin(kW),
-    .rst(rst),
-    .clk(clk)
-);
-
-LargePulse lpA(
-    .largepulse(lA),
-    .origin(kA),
-    .rst(rst),
-    .clk(clk)
-);
-
-LargePulse lpS(
-    .largepulse(lS),
-    .origin(kS),
-    .rst(rst),
     .clk(clk)
 );
 
@@ -75,10 +47,10 @@ render_scene rsc(
 );
 
 always @* begin
-    LED[0] = lR;
-    LED[1] = lW;
-    LED[2] = lA;
-    LED[3] = lS;
+    LED[0] = kR;
+    LED[1] = kW;
+    LED[2] = kA;
+    LED[3] = kS;
 end
 
 endmodule

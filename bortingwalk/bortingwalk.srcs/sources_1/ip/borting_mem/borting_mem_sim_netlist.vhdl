@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
--- Date        : Fri Dec 23 22:11:40 2016
--- Host        : Adam-PC running 64-bit Service Pack 1  (build 7601)
--- Command     : write_vhdl -force -mode funcsim {C:/Users/Adam/Desktop/final
---               project/hdlab/bortingwalk/bortingwalk.srcs/sources_1/ip/borting_mem/borting_mem_sim_netlist.vhdl}
+-- Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+-- Date        : Fri Dec 23 23:01:54 2016
+-- Host        : Scott running 64-bit Ubuntu 16.04.1 LTS
+-- Command     : write_vhdl -force -mode funcsim
+--               /media/scott/BC74E09A74E058A2/hdlab/bortingwalk/bortingwalk.srcs/sources_1/ip/borting_mem/borting_mem_sim_netlist.vhdl
 -- Design      : borting_mem
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

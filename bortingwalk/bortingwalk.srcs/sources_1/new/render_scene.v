@@ -11,7 +11,7 @@ clock_divider #(2) cd25Mz(.clk(clk), .clk_div(clk_25MHz));
 
 pixel_gen pixel_ctr(
    .borting_x(0),
-   .borting_y(0),
+   .borting_y(10'd163),
    .clk(clk),
    .h_cnt(h_cnt),
    .v_cnt(v_cnt),

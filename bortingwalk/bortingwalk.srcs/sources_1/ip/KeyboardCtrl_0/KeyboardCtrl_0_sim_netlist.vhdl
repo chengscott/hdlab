@@ -1,10 +1,10 @@
 -- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
--- Date        : Fri Dec 23 22:10:19 2016
--- Host        : Adam-PC running 64-bit Service Pack 1  (build 7601)
--- Command     : write_vhdl -force -mode funcsim {C:/Users/Adam/Desktop/final
---               project/hdlab/bortingwalk/bortingwalk.srcs/sources_1/ip/KeyboardCtrl_0/KeyboardCtrl_0_sim_netlist.vhdl}
+-- Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+-- Date        : Fri Dec 23 23:01:05 2016
+-- Host        : Scott running 64-bit Ubuntu 16.04.1 LTS
+-- Command     : write_vhdl -force -mode funcsim
+--               /media/scott/BC74E09A74E058A2/hdlab/bortingwalk/bortingwalk.srcs/sources_1/ip/KeyboardCtrl_0/KeyboardCtrl_0_sim_netlist.vhdl
 -- Design      : KeyboardCtrl_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

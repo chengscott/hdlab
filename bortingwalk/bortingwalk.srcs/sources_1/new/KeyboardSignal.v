@@ -1,20 +1,9 @@
 `timescale 1ns / 1ps
 
 module KeyboardSignal(
-    input clk,
-    input rst,
-    inout PS2_DATA,
-    inout PS2_CLK,
-    output reg kR,
-    output reg kW,
-    output reg kA,
-    output reg kS,
-    output reg kD,
-    output reg k0,
-    output reg k1,
-    output reg k2,
-    output reg k3,
-    output reg ksp
+    input clk, rst,
+    inout PS2_DATA, PS2_CLK,
+    output lR, lW, lA, lS, lD, l0, l1, l2, l3, lsp
 );
 // parameter [8:0] LEFT_SHIFT_CODES  = 9'h12;
 // parameter [8:0] RIGHT_SHIFT_CODES = 9'h59;
@@ -30,6 +19,7 @@ parameter [8:0] KEY_CODES [0:9] = {
     9'h7A, // 3
     9'h29 // sp
 };
+reg kR, kW, kA, kS, kD, k0, k1, k2, k3, ksp;
 wire [511:0] key_down;
 // wire shift_down = (key_down[LEFT_SHIFT_CODES] || key_down[RIGHT_SHIFT_CODES]);
 wire [8:0] last_change;
@@ -81,5 +71,75 @@ always @(posedge clk, posedge rst) begin
         end
     end
 end
+
+LargePulse lpR(
+    .largepulse(lR),
+    .origin(kR),
+    .rst(rst),
+    .clk(clk)
+);
+
+LargePulse lpW(
+    .largepulse(lW),
+    .origin(kW),
+    .rst(rst),
+    .clk(clk)
+);
+
+LargePulse lpA(
+    .largepulse(lA),
+    .origin(kA),
+    .rst(rst),
+    .clk(clk)
+);
+
+LargePulse lpS(
+    .largepulse(lS),
+    .origin(kS),
+    .rst(rst),
+    .clk(clk)
+);
+
+LargePulse lpD(
+    .largepulse(lD),
+    .origin(kD),
+    .rst(rst),
+    .clk(clk)
+);
+
+LargePulse lp0(
+    .largepulse(l0),
+    .origin(k0),
+    .rst(rst),
+    .clk(clk)
+);
+
+LargePulse lp1(
+    .largepulse(l1),
+    .origin(k1),
+    .rst(rst),
+    .clk(clk)
+);
+
+LargePulse lp2(
+    .largepulse(l2),
+    .origin(k2),
+    .rst(rst),
+    .clk(clk)
+);
+
+LargePulse lp3(
+    .largepulse(l3),
+    .origin(k3),
+    .rst(rst),
+    .clk(clk)
+);
+
+LargePulse lpsp(
+    .largepulse(lsp),
+    .origin(ksp),
+    .rst(rst),
+    .clk(clk)
+);
 
 endmodule
