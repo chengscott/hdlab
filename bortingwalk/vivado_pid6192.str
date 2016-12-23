@@ -1,0 +1,127 @@
+/*
+
+Vivado v2016.2 (64-bit)
+SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+Process ID: 6192
+
+Current time: 	12/23/16 11:21:15 PM CST
+Time zone: 	China Standard Time (Asia/Taipei)
+
+OS: Windows 7
+Version: 6.1
+Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1366x768
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=PMingLiU,name=·s²Ó©úÅé,style=plain,size=12
+
+Java version: 	1.8.0_66 64-bit
+Java home: 	C:/Xilinx/Vivado/2016.2/tps/win64/jre
+
+User name: 	Adam
+User home directory: C:/Users/Adam
+User working directory: C:/Users/Adam/Desktop/final project/hdlab/bortingwalk
+User country: 	TW
+User language: 	zh
+User locale: 	zh_TW
+
+RDI Base root directory: C:/Xilinx/Vivado
+RDI Data directory: C:/Xilinx/Vivado/2016.2/data
+RDI Bin directory: C:/Xilinx/Vivado/2016.2/bin
+
+Vivado preferences path: C:/Users/Adam/AppData/Roaming/Xilinx/Vivado/2016.2/vivado.ini
+Vivado layouts directory: C:/Users/Adam/AppData/Roaming/Xilinx/Vivado/2016.2/layouts
+
+GUI allocated memory:	146 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 386 MB
+
+*/
+
+// TclEventType: START_GUI
+// [GUI Memory]: 17 MB (+15440kb) [00:00:22]
+// [Engine Memory]: 329 MB (+193571kb) [00:00:22]
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bL:g (cv:JFrame):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\Adam\Desktop\final project\hdlab\bortingwalk\bortingwalk.xpr. Version: Vivado v2016.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project {C:/Users/Adam/Desktop/final project/hdlab/bortingwalk/bortingwalk.xpr} 
+// [GUI Memory]: 52 MB (+35191kb) [00:00:41]
+// [Engine Memory]: 387 MB (+43501kb) [00:00:41]
+// HMemoryUtils.trashcanNow. Engine heap size: 393 MB. GUI used memory: 30 MB. Current time: 12/23/16 11:21:17 PM CST
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 461 MB (+56744kb) [00:01:04]
+// [GUI Memory]: 63 MB (+8791kb) [00:01:06]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: open_project {C:/Users/Adam/Desktop/final project/hdlab/bortingwalk/bortingwalk.xpr} 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// HMemoryUtils.trashcanNow. Engine heap size: 480 MB. GUI used memory: 35 MB. Current time: 12/23/16 11:21:44 PM CST
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Adam/Desktop/final project/hdlab/bortingwalk/bortingwalk.ip_user_files'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [Engine Memory]: 488 MB (+4775kb) [00:01:10]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Project name: bortingwalk; location: C:/Users/Adam/Desktop/final project/hdlab/bortingwalk; part: xc7a35tcpg236-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:31 . Memory (MB): peak = 724.879 ; gain = 120.719 
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Open Project"); // bL:g (cv:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 70 seconds
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "KeyboardCtrl_0_synth_1 ; KeyboardCtrl_0 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ; 129 ; 87 ; 0 ; 0 ; 0 ; Fri Dec 23 23:10:01 CST 2016 ; 00:00:35 ; Vivado Synthesis Defaults (Vivado Synthesis 2016) ; xc7a35tcpg236-1 ; Vivado Synthesis Defaults", 3, "KeyboardCtrl_0_synth_1", 0, false); // W:as (JViewport:JComponent, cv:JFrame)
+// PAPropertyPanels.initPanels (KeyboardCtrl_0_synth_1) elapsed time: 0.7s
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "KeyboardCtrl_0_synth_1 ; KeyboardCtrl_0 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ; 129 ; 87 ; 0 ; 0 ; 0 ; Fri Dec 23 23:10:01 CST 2016 ; 00:00:35 ; Vivado Synthesis Defaults (Vivado Synthesis 2016) ; xc7a35tcpg236-1 ; Vivado Synthesis Defaults", 3, "KeyboardCtrl_0_synth_1", 0, false, false, false, false, true, false); // W:as (JViewport:JComponent, cv:JFrame) - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_RESET_RUNS, "Reset Runs"); // af:JMenuItem (am:JPopupMenu, Popup:JWindow)
+// f:g (cv:JFrame): Reset Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "Reset"); // a:JButton (JPanel:JComponent, f:g)
+// [Engine Memory]: 515 MB (+2230kb) [00:02:25]
+// f:g (cv:JFrame): Reset Runs: addNotify
+// bL:g (f:g):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run KeyboardCtrl_0_synth_1 
+// [GUI Memory]: 70 MB (+4088kb) [00:02:26]
+dismissDialog("Resetting Runs"); // bL:g (f:g)
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; Synthesis Out-of-date ;  ;  ;  ;  ;  ;  ; 874 ; 738 ; 0 ; 0 ; 0 ; Fri Dec 23 23:10:42 CST 2016 ; 00:00:55 ; Vivado Synthesis Defaults (Vivado Synthesis 2016) ; xc7a35tcpg236-1 ; Vivado Synthesis Defaults", 0, "synth_1", 0, true); // W:as (JViewport:JComponent, cv:JFrame) - Node
+// PAPropertyPanels.initPanels (synth_1) elapsed time: 0.2s
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; Synthesis Out-of-date ;  ;  ;  ;  ;  ;  ; 874 ; 738 ; 0 ; 0 ; 0 ; Fri Dec 23 23:10:42 CST 2016 ; 00:00:55 ; Vivado Synthesis Defaults (Vivado Synthesis 2016) ; xc7a35tcpg236-1 ; Vivado Synthesis Defaults", 0, "synth_1", 0, true, false, false, false, true, false); // W:as (JViewport:JComponent, cv:JFrame) - Popup Trigger - Node
+selectMenuItem(PAResourceCommand.PACommandNames_RESET_RUNS, "Reset Runs"); // af:JMenuItem (am:JPopupMenu, Popup:JWindow)
+// f:g (cv:JFrame): Reset Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "Reset"); // a:JButton (JPanel:JComponent, f:g)
+// f:g (cv:JFrame): Reset Runs: addNotify
+// bL:g (f:g):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// [GUI Memory]: 73 MB (+356kb) [00:02:31]
+dismissDialog("Resetting Runs"); // bL:g (f:g)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 25, false); // x:Y (w:G, cv:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// G:be (cv:JFrame): No Implementation Results Available: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, G:be)
+// bL:g (cv:JFrame):  Resetting Runs : addNotify
+dismissDialog("No Implementation Results Available"); // G:be (cv:JFrame)
+dismissDialog("Resetting Runs"); // bL:g (cv:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_LAUNCH
+// bL:g (cv:JFrame):  Generate Bitstream : addNotify
+// TclEventType: RUN_LAUNCH
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_COMPLETED

@@ -25,6 +25,8 @@ module bortingwalk(
 clock_divider #(27) cdsec(.clk(clk), .clk_div(clksec));
 debounce dbrst(.clk(clk), .pb(reset), .pb_debounced(rst));
 
+count_backward cb(clk,rst,DIGIT,DISPLAY);
+
 KeyboardSignal ks(
     .kR(kR),
     .kW(kW),
