@@ -2,9 +2,11 @@
 *.zip
 
 ## vivado
+.Xil/
 *.cache/
 *.hw/
 *.runs/
 *.sim/
 *.log
 *.jou
+*.str
