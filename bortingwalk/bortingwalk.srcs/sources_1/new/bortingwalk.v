@@ -69,6 +69,9 @@ always @* begin
     LED[2] = kA;
     LED[3] = kS;
     LED[4] = win_1p;
+    LED[5] = k1;
+    LED[6] = k2;
+    LED[7] = k3;
 end
 
 endmodule

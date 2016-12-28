@@ -17,10 +17,10 @@ module pixel_gen #(
 wire [13:0] borting_addr = ((h_cnt - borting_x + 2) + BORTING_X*(v_cnt - borting_y))%15000;
 wire [15:0] car_addr = (
         v_cnt < CAR2Y ?
-            ((h_cnt - car1_x) + BORTING_X*(v_cnt - CAR1Y)) :
+            ((h_cnt - car1_x) + CAR_X*(v_cnt - CAR1Y)) :
         v_cnt < CAR3Y ?
-            ((h_cnt - car2_x) + BORTING_X*(v_cnt - CAR2Y)) :
-            ((h_cnt - car3_x) + BORTING_X*(v_cnt - CAR3Y))
+            ((h_cnt - car2_x) + CAR_X*(v_cnt - CAR2Y)) :
+            ((h_cnt - car3_x) + CAR_X*(v_cnt - CAR3Y))
     )%37800;
 wire [11:0] borting_px, car_px;
 

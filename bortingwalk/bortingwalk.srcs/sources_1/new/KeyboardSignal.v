@@ -67,7 +67,8 @@ always @(posedge clk, posedge rst) begin
             if (last_change == KEY_CODES[5]) k0 <= 1;
             if (last_change == KEY_CODES[6]) k1 <= 1;
             if (last_change == KEY_CODES[7]) k2 <= 1;
-            if (last_change == KEY_CODES[8]) ksp <= 1;
+            if (last_change == KEY_CODES[8]) k3 <= 1;
+            if (last_change == KEY_CODES[9]) ksp <= 1;
         end
     end
 end
@@ -114,21 +115,21 @@ LargePulse lp0(
     .clk(clk)
 );
 
-LargePulse lp1(
+LargePulse #(24) lp1(
     .largepulse(l1),
     .origin(k1),
     .rst(rst),
     .clk(clk)
 );
 
-LargePulse lp2(
+LargePulse #(24) lp2(
     .largepulse(l2),
     .origin(k2),
     .rst(rst),
     .clk(clk)
 );
 
-LargePulse lp3(
+LargePulse #(24) lp3(
     .largepulse(l3),
     .origin(k3),
     .rst(rst),
