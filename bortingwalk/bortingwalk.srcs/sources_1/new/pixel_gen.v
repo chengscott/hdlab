@@ -3,7 +3,7 @@ module pixel_gen #(
                      bg = 12'h888,
     parameter [9:0] BORTING_X = 10'd100,
                     BORTING_Y = 10'd150,
-                    CAR_X = 10'd270,
+                    CAR_X = 10'd192,
                     CAR_Y = 10'd140,
                     CAR1Y = 10'd10,
                     CAR2Y = 10'd164,

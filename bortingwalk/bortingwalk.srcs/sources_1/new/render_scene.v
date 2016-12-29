@@ -4,7 +4,7 @@ module render_scene #(
     parameter [9:0] DELTA = 10'd10,
                     BORTING_X = 10'd100,
                     BORTING_Y = 10'd150,
-                    CAR_X = 10'd270,
+                    CAR_X = 10'd192,
                     CAR_Y = 10'd140
 ) (
     input clk, rst,
@@ -18,9 +18,9 @@ wire [9:0] borting_x_next, borting_y_next, car1_x_next, car2_x_next, car3_x_next
 wire car1_isInRange = car1_x >= 0 && car1_x < 10'd640;
 wire car2_isInRange = car2_x >= 0 && car2_x < 10'd640;
 wire car3_isInRange = car3_x >= 0 && car3_x < 10'd640;
-wire car1_show = car1_isInRange || (k1 && !(k2 && car3_isInRange) && !(k3 && car2_isInRange) && !(k2 && k3) && !(car2_isInRange && car3_isInRange));
-wire car2_show = car2_isInRange || (k2 && !(k1 && car3_isInRange) && !(k3 && car1_isInRange) && !(k3 && k1)&& !(car3_isInRange && car1_isInRange));
-wire car3_show = car3_isInRange || (k3 && !(k2 && car1_isInRange) && !(k1 && car2_isInRange) && !(k1 && k2)&& !(car1_isInRange && car2_isInRange));
+wire car1_show = car1_isInRange || (k1 && !k2 && !car2_isInRange) || (k1 && !k3 && !car3_isInRange);
+wire car2_show = car2_isInRange || (k2 && !k3 && !car3_isInRange) || (k2 && !k1 && !car1_isInRange);
+wire car3_show = car3_isInRange || (k3 && !k1 && !car1_isInRange) || (k3 && !k2 && !car2_isInRange);
 
 assign borting_x_next = borting_x + (kD ? DELTA : (kA ? -DELTA : 0));
 assign borting_y_next = borting_y + (kW ? -DELTA : (kS ? DELTA : 0));
