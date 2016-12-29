@@ -15,7 +15,7 @@ module pixel_gen #(
     output reg [3:0] vgaRed, vgaGreen, vgaBlue
 );
 wire [13:0] borting_addr = ((h_cnt - borting_x + 2) + BORTING_X*(v_cnt - borting_y))%15000;
-wire [15:0] car_addr = (
+wire [14:0] car_addr = (
         v_cnt < CAR2Y ?
             ((h_cnt - car1_x) + CAR_X*(v_cnt - CAR1Y)) :
         v_cnt < CAR3Y ?
