@@ -12,6 +12,7 @@ module pixel_gen #(
     input clk, valid,
     input [9:0] h_cnt, v_cnt,
     input [9:0] borting_x, borting_y, car1_x, car2_x, car3_x,
+    input win_1p, win_2p,
     output reg [3:0] vgaRed, vgaGreen, vgaBlue
 );
 wire [13:0] borting_addr = ((h_cnt - borting_x + 2) + BORTING_X*(v_cnt - borting_y))%15000;
@@ -21,11 +22,15 @@ wire [14:0] car_addr = (
         v_cnt < CAR3Y ?
             ((h_cnt - car2_x) + CAR_X*(v_cnt - CAR2Y)) :
             ((h_cnt - car3_x) + CAR_X*(v_cnt - CAR3Y))
-    )%37800;
-wire [11:0] borting_px, car_px;
+    )%26880;
+wire [16:0] win_1p_addr = ((h_cnt >> 1) + 320*(v_cnt >> 1))%76800;
+wire [16:0] win_2p_addr = ((h_cnt >> 1) + 320*(v_cnt >> 1))%76800;
+wire [11:0] borting_px, car_px, win_1p_px, win_2p_px;
 
 always @* begin
     if (!valid) {vgaGreen, vgaRed, vgaBlue} = 12'h0;
+    else if (win_2p) {vgaRed, vgaGreen, vgaBlue} = win_2p_px;
+    else if (win_1p) {vgaRed, vgaGreen, vgaBlue} = win_1p_px;
     //car1
     else if (
        h_cnt >= car1_x &&
@@ -80,6 +85,16 @@ car_mem car(
     .addra(car_addr),
     .dina(0),
     .douta(car_px)
+);
+
+win_1p_mem_test win1p(
+    .addr(win_1p_addr),
+    .dout(win_1p_px)
+);
+
+win_2p_mem_test win2p(
+    .addr(win_2p_addr),
+    .dout(win_2p_px)
 );
 
 endmodule

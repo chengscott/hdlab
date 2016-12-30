@@ -58,6 +58,7 @@ render_scene rsc(
     .k2(k2),
     .k3(k3),
     .ksp(ksp),
+    .win_1p(win_1p),
     .vgaRed(vgaRed),
     .vgaGreen(vgaGreen),
     .vgaBlue(vgaBlue),
