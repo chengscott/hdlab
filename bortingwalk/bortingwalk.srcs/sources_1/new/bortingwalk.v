@@ -70,6 +70,15 @@ render_scene rsc(
     .vsync(vsync)
 );
 
+music mc(
+    .clk(clk),
+    .rst(rst),
+    .pmod_1(pmod_1),
+    .pmod_2(pmod_2),
+    .pmod_4(pmod_4)
+);
+
+
 always @* begin
     LED[0] = kD;
     LED[1] = kW;
