@@ -38,11 +38,13 @@ KeyboardSignal ks(
 
 count_backward cb(
     .clk(clk),
+    .restart(restart),
     .rst(rst),
     .DIGIT(DIGIT),
     .DISPLAY(DISPLAY),
-    .start(k0),
-    .win_1p(win_1p)
+    .start(ksp),
+    .win_1p(win_1p),
+    .win_2p(win_2p)
 );
 
 render_scene rsc(
@@ -57,8 +59,10 @@ render_scene rsc(
     .k1(k1),
     .k2(k2),
     .k3(k3),
-    .ksp(ksp),
+    .start(ksp),
     .win_1p(win_1p),
+    .win_2p(win_2p),
+    .restart(restart),
     .vgaRed(vgaRed),
     .vgaGreen(vgaGreen),
     .vgaBlue(vgaBlue),

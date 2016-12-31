@@ -2,21 +2,22 @@
 
 module count_backward(
     input clk, rst,
-    input start,
-    output win_1p,
+    input start, restart, win_2p,
+    output reg win_1p,
     output [3:0] DIGIT,
     output [6:0] DISPLAY
 );
 reg [6:0] LD, RD, LD_next, RD_next;
 reg enable = 0;
-assign win_1p = (RD == 0)? 1 : 0;
 
 clock_divider #13 cd13(clk, clk13);
 clock_divider #27 cd27(clk, clk27);
 digit_controler dc(clk13, LD, RD, DIGIT, DISPLAY);
 
-always @(posedge start) enable = 1;
-
+always @(posedge start, posedge rst, posedge win_2p) begin
+    if (rst || win_2p) enable <= 0;
+    else enable <= 1;
+end
 
 always @* begin
     LD_next = 0;
@@ -25,10 +26,15 @@ always @* begin
     else RD_next = RD;
 end
 
-always @(posedge clk27, posedge rst) begin
-    if (rst) begin
+always @(posedge clk27, posedge rst, posedge restart) begin
+    if (rst || restart) begin
         LD <= 0;
         RD <= 40;
+        win_1p <= 0;
+    end else if(RD == 0) begin
+        win_1p <= 1;
+        LD <= LD_next;
+        RD <= RD_next;
     end else begin
         LD <= LD_next;
         RD <= RD_next;
