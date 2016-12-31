@@ -1,0 +1,30 @@
+.re sp .re sp .la4 .re sp .re .si4
+.re sp .re sp .la4 .re sp .re .so4
+.re sp .re sp .la4 .re sp .re sp ..re3 sp
+..re8 .re8  ..do8 .do8
+.re sp .re sp .la4 .re sp .re sp .si4
+.re sp .re sp ..do4 .re sp .re sp ..re3 sp
+..re15 sp ..re4 sp8
+so si .re .fa* .so sp .so sp4
+.so sp .so sp .so sp .so sp .so2 sp
+.fa sp .fa sp .fa sp .fa sp .fa sp .fa* sp
+so6 si2 .re8
+fa6 re2 .fa6 .mi .mi_
+.re8 fa6 mi mi_
+re8 .do4 si4
+.do4 so6 si2 .re8 fa6 re2 .do4
+si4 .do4 .re8
+.fa4 .mi4 .do4 .re5 si .do .re so6 si2
+.re8 fa6 re2 .fa6 .mi .mi_ .re8
+fa6 mi mi_ re8 .do4 si4 .do4 so4
+so2 si2 re8 fa6 re2 .fa4 .mi4 .fa4
+.so6 .si_2 .so8 .la8 .si_6 .fa2 sp
+.fa5 mi4 fa8 .si_4 .si4 .do6 .la2
+sp .la3 fa4 mi8 ..do4 ..do4* ..re2
+.re sp .re sp .re sp .re sp .re sp .re sp .re sp .re sp
+.re sp .re sp .re sp .re sp .re sp .re sp .re sp .re sp
+..do3 sp ..do4 ..do*4 ..re2 .re sp .re sp 
+.re sp .re sp .re sp .re sp .re sp .re sp .re sp .re sp
+.re sp .re sp .re sp .re sp .re sp .re sp .re sp .re sp
+.do3 sp .do4 si4
+

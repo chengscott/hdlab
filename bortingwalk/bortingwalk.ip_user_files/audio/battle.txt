@@ -1,0 +1,8 @@
+do3  so.7  do2  so2  la_2  la3  fa13 
+mi3  do7  so2  la2  la_2  la3  .do13
+.do_3  la_7  la_2  .do2  .do_2  .do3  la13
+.do_3  la_7  la_2  .do2  .do_2  .do3  .fa11
+.so2  .so_16  .fa16  .so_16  .la_16
+.re_3  .so3  .so_2  ..do_4  ..re_4  
+
+

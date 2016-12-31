@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module music_battle (
-    input [7:0] ibeatNum,    
+    input [9:0] ibeatNum,    
     output reg [31:0] tone
 );
 

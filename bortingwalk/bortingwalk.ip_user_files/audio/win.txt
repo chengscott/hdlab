@@ -1,0 +1,20 @@
+.me2 .do2 .re2 si2
+.do si so la so2 so so*
+la .do2 la2 .mi .re .do
+si .do .re .do si sp3
+.mi2 .do2 .re2 si2
+.do si la si so2 so so*
+la .do2 la2 .la .so .fa
+.me .fa .so .la .si sp3
+.do4 .mi2 .do2
+si4 .re2 .si2
+la4 .do2 .la2
+si2 .mi so la la* si sp
+.do4 .mi2 .do2
+si4 .re2 si2
+la4 .do2 la2
+si2 .re .me .re .do si sp
+si4 .fa2 .me2
+.so2 .so .la .so sp .so .la
+.so2 .fa2 .me2 .re2 .do sp3
+

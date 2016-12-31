@@ -1,10 +1,11 @@
 `timescale 1ns / 1ps
 
-module PlayerCtrl (
+module PlayerCtrl #(
+    parameter BEATLEAGTH = 212
+) (
 	input clk, reset,
-	output reg [8:0] ibeat
+	output reg [9:0] ibeat
 );
-parameter BEATLEAGTH = 212;
 
 always @(posedge clk, posedge reset) begin
 	if (reset)
