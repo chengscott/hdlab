@@ -1,10 +1,10 @@
 // Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-// Date        : Sat Dec 31 12:47:15 2016
-// Host        : Adam-PC running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode synth_stub {C:/Users/Adam/Desktop/final
-//               project/hdlab/bortingwalk/bortingwalk.srcs/sources_1/ip/borting_mem/borting_mem_stub.v}
+// Tool Version: Vivado v.2016.2 (lin64) Build 1577090 Thu Jun  2 16:32:35 MDT 2016
+// Date        : Sat Dec 31 13:05:47 2016
+// Host        : Scott running 64-bit Ubuntu 16.04.1 LTS
+// Command     : write_verilog -force -mode synth_stub
+//               /media/scott/BC74E09A74E058A2/hdlab/bortingwalk/bortingwalk.srcs/sources_1/ip/borting_mem/borting_mem_stub.v
 // Design      : borting_mem
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1

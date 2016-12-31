@@ -78,16 +78,4 @@ music mc(
     .pmod_4(pmod_4)
 );
 
-
-always @* begin
-    LED[0] = kD;
-    LED[1] = kW;
-    LED[2] = kA;
-    LED[3] = kS;
-    LED[4] = win_1p;
-    LED[5] = k1;
-    LED[6] = k2;
-    LED[7] = k3;
-end
-
 endmodule

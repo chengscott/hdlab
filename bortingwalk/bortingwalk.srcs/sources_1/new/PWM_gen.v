@@ -1,12 +1,11 @@
 `timescale 1ns / 1ps
+
 module PWM_gen (
-    input wire clk,
-    input wire reset,
+    input clk, reset,
 	input [31:0] freq,
     input [9:0] duty,
     output reg PWM
 );
-
 wire [31:0] count_max = 100_000_000 / freq;
 wire [31:0] count_duty = count_max * duty / 1024;
 reg [31:0] count;
