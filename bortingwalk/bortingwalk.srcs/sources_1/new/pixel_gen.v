@@ -31,8 +31,12 @@ wire [16:0] win_1p_addr = ((h_cnt >> 1) + 320*(v_cnt >> 1))%76800;
 wire [16:0] win_2p_addr = ((h_cnt >> 1) + 320*(v_cnt >> 1))%76800;
 wire [16:0] title_addr = ((h_cnt >> 1) + 320*(v_cnt >> 1))%76800;
 wire [11:0] borting_px, car_px, win_1p_px, win_2p_px, title_px;
+reg if_title = 1, state = 1;
 
-reg if_title = 1;
+clock_divider #(25) clk_start(.clk(clk), .clk_div(clkstart));
+
+always @(posedge clkstart) state = ~state;
+
 always @(posedge start, posedge rst) begin
     if (rst) begin
         if_title <= 1;
@@ -48,7 +52,10 @@ end
 
 always @* begin
     if (!valid) {vgaGreen, vgaRed, vgaBlue} = 12'h0;
-    else if (if_title) {vgaRed, vgaGreen, vgaBlue} = title_px;
+    else if (if_title) begin
+        if (state && v_cnt > 10'd365) {vgaRed, vgaGreen, vgaBlue} = 12'h0;
+        else {vgaRed, vgaGreen, vgaBlue} = title_px;
+    end
     else if (win_2p) {vgaRed, vgaGreen, vgaBlue} = win_2p_px;
     else if (win_1p) {vgaRed, vgaGreen, vgaBlue} = win_1p_px;
     //car1

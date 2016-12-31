@@ -16,7 +16,7 @@ module bortingwalk(
     inout PS2_DATA, PS2_CLK
 );
 
-clock_divider #(27) cdsec(.clk(clk), .clk_div(clksec));
+clock_divider #(25) cdsec(.clk(clk), .clk_div(clksec));
 debounce dbrst(.clk(clk), .pb(reset), .pb_debounced(rst));
 
 KeyboardSignal ks(
