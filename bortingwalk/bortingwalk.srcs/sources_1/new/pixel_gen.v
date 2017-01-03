@@ -114,12 +114,12 @@ car_mem car(
     .douta(car_px)
 );
 
-win_1p_mem_test win1p(
+win_1p_mem win1p(
     .addr(win_1p_addr),
     .dout(win_1p_px)
 );
 
-win_2p_mem_test win2p(
+win_2p_mem win2p(
     .addr(win_2p_addr),
     .dout(win_2p_px)
 );
