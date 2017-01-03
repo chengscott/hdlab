@@ -1,6 +1,10 @@
 `timescale 1ns / 1ps
 
-module bortingwalk(
+module bortingwalk #(
+    parameter [1:0] title = 2'b00,
+                    gaming = 2'b01,
+                    win = 2'b10
+) (
     input clk, reset,
     // LED
     output [15:0] LED,
@@ -78,13 +82,6 @@ game_state gs(
     .if_title(if_title),
     .state(state)
 );
-    parameter [1:0] title = 2'b00;
-    parameter [1:0] gaming = 2'b01;
-    parameter [1:0] win = 2'b10;
-assign LED[0] = (state == title)? 1 : 0;
-assign LED[1] = (state == gaming)? 1 : 0;
-assign LED[2] = (state == win)? 1 : 0;
-
 
 music mc(
     .clk(clk),

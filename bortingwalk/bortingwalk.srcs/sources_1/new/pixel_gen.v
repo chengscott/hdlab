@@ -16,7 +16,7 @@ module pixel_gen #(
     input [9:0] borting_x, borting_y, car1_x, car2_x, car3_x,
     input win_1p, win_2p,
     input start, rst,
-    output if_title,
+    output reg if_title,
     output reg restart,
     output reg [3:0] vgaRed, vgaGreen, vgaBlue
 );
@@ -32,7 +32,7 @@ wire [16:0] win_1p_addr = ((h_cnt >> 1) + 320*(v_cnt >> 1))%76800;
 wire [16:0] win_2p_addr = ((h_cnt >> 1) + 320*(v_cnt >> 1))%76800;
 wire [16:0] title_addr = ((h_cnt >> 1) + 320*(v_cnt >> 1))%76800;
 wire [11:0] borting_px, car_px, win_1p_px, win_2p_px, title_px;
-reg if_title = 1, state = 1;
+reg state = 1;
 
 clock_divider #(25) clk_start(.clk(clk), .clk_div(clkstart));
 
@@ -115,12 +115,12 @@ car_mem car(
     .douta(car_px)
 );
 
-win_1p_mem_test win1p(
+win_1p_mem win1p(
     .addr(win_1p_addr),
     .dout(win_1p_px)
 );
 
-win_2p_mem_test win2p(
+win_2p_mem win2p(
     .addr(win_2p_addr),
     .dout(win_2p_px)
 );

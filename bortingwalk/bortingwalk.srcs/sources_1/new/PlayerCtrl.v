@@ -6,16 +6,10 @@ module PlayerCtrl (
 	input [1:0] state,
 	output reg [9:0] ibeat
 );
-
-
 reg [1:0] last_state;
-
-
-always @(posedge clk) begin
-    last_state = state;
-end
-
 assign reset = rst || !(state == last_state);
+
+always @(posedge clk) last_state = state;
 
 always @(posedge clk, posedge reset) begin
 	if (reset)
