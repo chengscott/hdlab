@@ -14,7 +14,7 @@ module render_scene #(
     input kR, kW, kA, kS, kD, k0, k1, k2, k3,
     input win_1p,
     input start,
-    output restart,
+    output restart, if_title,
     output reg win_2p,
     output [3:0] vgaRed, vgaGreen, vgaBlue,
     output hsync, vsync
@@ -68,7 +68,8 @@ pixel_gen #(
     .valid(valid),
     .vgaRed(vgaRed),
     .vgaGreen(vgaGreen),
-    .vgaBlue(vgaBlue)
+    .vgaBlue(vgaBlue),
+    .if_title(if_title)
 );
 
 vga_controller vga_inst(

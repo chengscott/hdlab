@@ -3,7 +3,7 @@
 module bortingwalk(
     input clk, reset,
     // LED
-    output reg [15:0] LED,
+    output [15:0] LED,
     // 7-SEG
     output [3:0] DIGIT,
     output [6:0] DISPLAY,
@@ -15,7 +15,7 @@ module bortingwalk(
     // Keyboard
     inout PS2_DATA, PS2_CLK
 );
-
+wire [1:0] state;
 clock_divider #(25) cdsec(.clk(clk), .clk_div(clksec));
 debounce dbrst(.clk(clk), .pb(reset), .pb_debounced(rst));
 
@@ -62,6 +62,7 @@ render_scene rsc(
     .start(ksp),
     .win_1p(win_1p),
     .win_2p(win_2p),
+    .if_title(if_title),
     .restart(restart),
     .vgaRed(vgaRed),
     .vgaGreen(vgaGreen),
@@ -70,9 +71,25 @@ render_scene rsc(
     .vsync(vsync)
 );
 
+game_state gs(
+    .clk(clk),
+    .win_1p(win_1p),
+    .win_2p(win_2p),
+    .if_title(if_title),
+    .state(state)
+);
+    parameter [1:0] title = 2'b00;
+    parameter [1:0] gaming = 2'b01;
+    parameter [1:0] win = 2'b10;
+assign LED[0] = (state == title)? 1 : 0;
+assign LED[1] = (state == gaming)? 1 : 0;
+assign LED[2] = (state == win)? 1 : 0;
+
+
 music mc(
     .clk(clk),
     .rst(rst),
+    .state(state),
     .pmod_1(pmod_1),
     .pmod_2(pmod_2),
     .pmod_4(pmod_4)

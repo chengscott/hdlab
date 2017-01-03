@@ -5,6 +5,8 @@ module music_title(
     output reg [31:0] tone
 );
 
+//assign num = 10'd159;
+
 always @* begin
     case (ibeatNum) // 1/4 beat
         10'd0: tone = 32'd659;

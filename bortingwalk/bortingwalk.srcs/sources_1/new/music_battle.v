@@ -5,6 +5,8 @@ module music_battle (
     output reg [31:0] tone
 );
 
+//assign num = 10'd212;
+
 always @* begin
     case (ibeatNum) // 1/4 beat
         8'd0: tone = 32'd261;

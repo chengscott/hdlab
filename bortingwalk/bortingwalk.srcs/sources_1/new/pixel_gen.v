@@ -16,6 +16,7 @@ module pixel_gen #(
     input [9:0] borting_x, borting_y, car1_x, car2_x, car3_x,
     input win_1p, win_2p,
     input start, rst,
+    output if_title,
     output reg restart,
     output reg [3:0] vgaRed, vgaGreen, vgaBlue
 );
